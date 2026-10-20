@@ -1,0 +1,14 @@
+.eyebrow { margin: 15px 0 13px; color: #c2410c; font-size: 10px; font-weight: 900; letter-spacing: .12em; }
+.full-state { display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid #f2c9b4; border-radius: 14px; background: #fff0e7; color: #802d0b; }
+.full-state ion-icon { font-size: 26px; }
+.full-state strong,.full-state span { display: block; }
+.full-state strong { font-size: 17px; }
+.full-state span { margin-top: 3px; color: #6c5c53; font-size: 11px; }
+.attempt { margin: 13px 0; border: 1px solid #eee2dc; border-radius: 13px; box-shadow: none; }
+.attempt-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.attempt-row strong,.attempt-row span { display: block; }
+.attempt-row strong { font-size: 14px; }
+.attempt-row span { color: #77716d; font-size: 11px; }
+.attempt ion-badge { display: flex; align-items: center; gap: 4px; padding: 7px; }
+.message { margin: 14px 0; padding: 12px; border-radius: 10px; background: #fff0e7; color: #79300e; text-align: center; font-size: 13px; }
+.blocked { --border-radius: 12px; --background: #d6d1cd; --color: #67605c; height: 46px; font-weight: 900; }

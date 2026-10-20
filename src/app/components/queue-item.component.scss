@@ -1,0 +1,6 @@
+.person-card { margin: 0 0 9px; border: 1px solid #e8ddd6; border-radius: 13px; box-shadow: none; }
+.person-card.active { border-color: #c2410c; box-shadow: 0 0 0 2px #c2410c16; }
+.person { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+strong { color: #24211f; font-size: 14px; }
+.muted { margin-top: 2px; color: #77716d; font-size: 12px; }
+.pick { --color: #c2410c; --background: #fff0e7; --border-radius: 50%; width: 34px; height: 34px; margin: 0; }

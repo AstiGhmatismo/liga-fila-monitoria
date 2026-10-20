@@ -1,0 +1,17 @@
+<ion-header><ion-toolbar color="primary"><ion-title class="toolbar-title">Fila Monitoria</ion-title></ion-toolbar></ion-header>
+<ion-content><main class="page-wrap login-wrap">
+  <div class="brand-mark">FM</div><p class="eyebrow">INFO-24 · PDM</p>
+  <h1>{{ registering ? 'Crie sua conta' : 'Entre na monitoria' }}</h1>
+  <p class="page-subtitle">Entre na fila de atendimento e acompanhe sua posição.</p>
+  <div class="notice" *ngIf="!auth.configured">Configure o Firebase em src/environments/environment.ts e ative Email/Senha e Google no Console.</div>
+  <form (ngSubmit)="submit()">
+    <ion-item class="field"><ion-label position="stacked">E-mail</ion-label><ion-input name="email" type="email" [(ngModel)]="email" autocomplete="email" required></ion-input></ion-item>
+    <ion-item class="field"><ion-label position="stacked">Senha</ion-label><ion-input name="password" type="password" [(ngModel)]="password" autocomplete="current-password" minlength="6" required></ion-input></ion-item>
+    <p class="error" *ngIf="error" role="alert">{{ error }}</p>
+    <ion-button expand="block" type="submit" [disabled]="busy || !auth.configured">
+      <ion-spinner *ngIf="busy" name="crescent"></ion-spinner>{{ registering ? 'Cadastrar e entrar' : 'Entrar' }}
+    </ion-button>
+  </form>
+  <ion-button expand="block" fill="outline" (click)="google()" [disabled]="busy || !auth.configured">Continuar com Google</ion-button>
+  <button class="switch" type="button" (click)="registering = !registering; error = ''">{{ registering ? 'Já tem conta? Entre' : 'Ainda não tem conta? Cadastre-se' }}</button>
+</main></ion-content>

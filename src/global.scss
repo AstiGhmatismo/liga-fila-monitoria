@@ -1,0 +1,19 @@
+@use "./theme/variables";
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+html, body, app-root { height: 100%; }
+body { margin: 0; background: #fff8f4; }
+* { box-sizing: border-box; }
+ion-content { --background: #fff8f4; }
+.page-wrap { width: min(720px, 100%); margin: 0 auto; padding: 16px 18px 36px; }
+.page-subtitle { color: #64716c; font-size: 14px; }
+.notice { margin: 16px 0; padding: 12px 14px; border-left: 4px solid #c2410c; border-radius: 8px; background: #fff0e7; color: #6b3419; font-size: 13px; }
+.toolbar-title { font-weight: 800; letter-spacing: -.02em; }

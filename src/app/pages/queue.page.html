@@ -1,0 +1,19 @@
+<ion-header><ion-toolbar color="primary">
+  <ion-title class="toolbar-title">Fila Monitoria</ion-title>
+  <ion-button slot="end" fill="clear" color="light" aria-label="Sair" (click)="logout()"><ion-icon slot="icon-only" name="log-out"></ion-icon></ion-button>
+</ion-toolbar></ion-header>
+<ion-content><main class="page-wrap">
+  <p class="eyebrow">MONITORIA · PDM</p>
+  <div class="title-line"><div><h1>Escolha um assunto</h1><p class="page-subtitle">Selecione o tema para pedir ajuda.</p></div><ion-badge color="secondary">{{ queue.totalEntries() }}/{{ queue.limit }} na fila</ion-badge></div>
+  <div class="stat-card"><ion-icon name="people"></ion-icon><div><b>{{ queue.totalEntries() }} de {{ queue.limit }} lugares ocupados</b><span>Fila de atendimento</span></div></div>
+  <div class="notice" *ngIf="queue.isFull()">Fila cheia (máx. {{ queue.limit }}). Aguarde alguém sair da fila.</div>
+  <ion-item class="filter"><ion-label>Filtrar por assunto</ion-label>
+    <ion-select [(ngModel)]="topic" (ionChange)="applyFilter()" interface="popover" aria-label="Filtrar por assunto">
+      <ion-select-option *ngFor="let item of topics()" [value]="item">{{ item }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <app-queue-item *ngFor="let entry of visibleEntries" [entry]="entry" [selected]="selected?.id === entry.id" (choose)="choose($event)"></app-queue-item>
+  <p class="error" *ngIf="error" role="alert">{{ error }}</p>
+  <ion-button expand="block" class="continue" (click)="continue()">Continuar <ion-icon slot="end" name="chevron-forward"></ion-icon></ion-button>
+  <p class="hint">A entrada na fila depende de haver um lugar disponível.</p>
+</main></ion-content>

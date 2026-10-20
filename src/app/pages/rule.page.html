@@ -1,0 +1,14 @@
+<ion-header><ion-toolbar color="primary">
+  <ion-button slot="start" fill="clear" color="light" aria-label="Voltar" (click)="back()"><ion-icon slot="icon-only" name="arrow-back"></ion-icon></ion-button>
+  <ion-title class="toolbar-title">Fila Monitoria</ion-title>
+</ion-toolbar></ion-header>
+<ion-content><main class="page-wrap">
+  <p class="eyebrow">REGRA DA FILA</p>
+  <div class="full-state"><ion-icon name="alert-circle"></ion-icon><div><strong>Fila cheia (máx. {{ queue.limit }})</strong><span>O limite de atendimento foi atingido.</span></div></div>
+  <ion-card class="attempt"><ion-card-content><div class="attempt-row">
+    <div><strong>Você</strong><span>tentando entrar · {{ topic }}</span></div><ion-badge color="danger"><ion-icon name="lock-closed"></ion-icon> bloqueado</ion-badge>
+  </div></ion-card-content></ion-card>
+  <div class="message">Aguarde alguém sair da fila.</div>
+  <ion-button expand="block" class="blocked" disabled>Entrar na fila</ion-button>
+  <ion-button expand="block" fill="clear" (click)="back()">Voltar para a lista</ion-button>
+</main></ion-content>

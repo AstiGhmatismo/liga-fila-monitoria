@@ -1,0 +1,13 @@
+.eyebrow { margin: 15px 0 4px; color: #c2410c; font-size: 10px; font-weight: 900; letter-spacing: .12em; }
+h1 { margin: 0; font-size: 27px; letter-spacing: -.045em; }
+.title-line { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.title-line ion-badge { flex: 0 0 auto; padding: 8px; }
+.stat-card { display: flex; align-items: center; gap: 12px; margin: 17px 0 12px; padding: 14px; border: 1px solid #f0d4c5; border-radius: 14px; background: #fff0e7; }
+.stat-card ion-icon { color: #c2410c; font-size: 24px; }
+.stat-card b,.stat-card span { display: block; }
+.stat-card b { font-size: 13px; }
+.stat-card span { color: #746a64; font-size: 11px; }
+.filter { margin-bottom: 12px; --background: #fffefa; --border-radius: 12px; font-size: 12px; }
+.continue { margin-top: 17px; --border-radius: 12px; height: 46px; font-weight: 900; }
+.hint,.error { text-align: center; color: #6c7770; font-size: 11px; }
+.error { color: #b42318; }

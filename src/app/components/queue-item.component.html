@@ -1,0 +1,8 @@
+<ion-card class="person-card" [class.active]="selected">
+  <ion-card-content><div class="person">
+    <div><strong>{{ entry.name }} — {{ entry.topic }}</strong><div class="muted">posição {{ entry.position }}</div></div>
+    <ion-button class="pick" fill="clear" aria-label="Selecionar tópico" (click)="select()">
+      <ion-icon slot="icon-only" [name]="selected ? 'checkmark' : 'add'"></ion-icon>
+    </ion-button>
+  </div></ion-card-content>
+</ion-card>
