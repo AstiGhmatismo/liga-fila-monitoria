@@ -1,44 +1,51 @@
-# Fila Monitoria — INFO-24 PDM
+# Fila Monitoria
 
-App Ionic Angular standalone para a atividade Liga Ionic, tema Fila Monitoria.
+Projeto individual da turma INFO-24 · PDM. Aplicação para visualizar a fila de monitoria, escolher um assunto e apresentar o limite de atendimento.
 
-## Requisitos
+## Tecnologias
+
 - Node.js 22.23.1
-- Ionic 9
-- Uma aplicação Firebase criada pela pessoa estudante
+- Ionic 9 com Angular standalone
+- Firebase Authentication e Cloud Firestore
 
-## Configurar Firebase
-1. Crie ou selecione seu projeto no Firebase Console e registre um app Web.
-2. Ative Authentication com Email/Senha e Google.
-3. Em Authentication → Settings, confirme localhost nos domínios autorizados.
-4. Crie o banco Cloud Firestore.
-5. Copie os dados do app Web para src/environments/environment.ts.
-6. Publique as regras deste repositório no Firestore Rules. Elas permitem leitura autenticada da fila e gravação de tentativas bloqueadas; cada pessoa só pode ler suas próprias tentativas.
+## Funcionalidades
 
-Os valores em environment.ts são marcadores, não credenciais. Sem trocá-los, autenticação e Firestore ficam desativados.
+- Cadastro e login com e-mail e senha, além de login com Google.
+- Redirecionamento da rota inicial para a tela de login e proteção das telas da fila.
+- Lista tipada de assuntos, posições, seleção e filtro.
+- Contador de lugares e limite de cinco pessoas.
+- Estado de fila cheia com entrada bloqueada.
+- Registro da tentativa no Firestore com usuário, assunto, total, status e data do servidor.
+- Componentes separados para os itens da fila e regras centralizadas no serviço.
 
-## Instalar e abrir
-Na pasta do projeto:
-    npm install
-    npx ionic serve
-Para compilar:
-    npm run build
+## Como configurar e iniciar
 
-## Fluxo implementado
-- Rota vazia redireciona para login.
-- Cadastro/login com e-mail e senha, mais Google com popup.
-- A lista inicial reproduz os cinco nomes, assuntos e posições do PRINTS.html.
-- Filtro, seleção e contador de lugares ocupados.
-- Ao continuar com cinco lugares ocupados, grava tentativa em queueActions com usuário, assunto, total, status e data do servidor; a próxima tela mostra a fila cheia e bloqueia a entrada.
-- Model tipado e service raiz centralizam lista, filtro, total e limite.
-- Item da fila é componente standalone com @Input e @Output.
+1. Instale o Node.js **22.23.1**. Confira no terminal:
 
-O print mostra a fila cheia (cinco pessoas). Os cinco exemplos ficam como estado inicial se a coleção ainda estiver vazia. São dados visuais de demonstração, não uma fila real.
+   ```bash
+   node --version
+   ```
 
-## Git no fork
-Este pacote não inclui node_modules. Antes do envio, confira:
-    git status
-    git add .
-    git commit -m "implementa fila de monitoria"
-    git push
-Se node_modules já estiver rastreado, remova-o do índice com git rm -r --cached node_modules e confirme que .gitignore inclui a pasta. Não apague arquivos em conflito; peça ajuda ao professor.
+   O resultado esperado é `v22.23.1`.
+
+2. No Console do Firebase, abra o projeto, registre um aplicativo Web e copie a configuração Web para `src/environments/environment.ts`.
+
+3. No Firebase, ative os métodos de autenticação **E-mail/senha** e **Google**, adicione `localhost` aos domínios autorizados e crie um banco Cloud Firestore.
+
+4. Publique no Firestore as regras do arquivo `firestore.rules`.
+
+5. No terminal, abra a pasta do projeto e instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+6. Inicie o site:
+
+   ```bash
+   npx ionic serve
+   ```
+
+   O terminal mostrará o endereço local para abrir no navegador. Para conferir a compilação, execute `npm run build`.
+
+Os campos de Firebase no repositório estão como marcadores. Sem a configuração do projeto, a tela informa que o Firebase precisa ser configurado e não habilita o login nem os registros. A lista inicial de cinco pessoas reproduz o estado cheio apresentado na atividade quando a coleção `filaMonitoria` ainda está vazia.
